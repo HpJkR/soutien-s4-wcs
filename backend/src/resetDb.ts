@@ -18,19 +18,30 @@ export async function clearDB() {
   await db.synchronize();
 }
 
-async function main(){
+async function main() {
   await db.initialize();
   await clearDB();
 
-  const socks = await Product.create({
-    name : 'chaussettes',
-  }).save();
+  const socks = Product.create({
+    name: "chaussettes",
+    description: "description chaussettes",
+    picture:
+      "https://www.achile.com/5699-large_default/chaussettes-homme-fantaisies-victoire-en-coton.jpg",
+    price: 5,
+  });
 
-  const shoes = await Product.create({
-    name : 'chaussures',
-  }).save();
+  const shoes = Product.create({
+    name: "chaussures",
+    description: "description chaussures",
+    picture:
+      "https://www.commeuncamion.com/content/uploads/2014/02/chaussures-classe-brogues-septieme-largeur.jpg",
+    price: 120,
+  });
 
-  console.log('done');
+  await socks.save();
+  await shoes.save();
+
+  console.log("done");
 }
 
 main();
