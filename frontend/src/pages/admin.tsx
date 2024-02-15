@@ -1,5 +1,8 @@
 import Layout from "@/components/Layout"
 import { useProductsQuery } from '@/graphql/generated/schema'
+import ProfileForm from "@/components/component/ProfilForm"
+import TableComponent from "@/components/component/Table"
+
 
 export default function Admin() {
 
@@ -14,6 +17,8 @@ export default function Admin() {
                     <p>{product.id}</p>
                 </div>
             )}</div>
+            <ProfileForm />
+            <TableComponent />
         </Layout>
     )
 }
